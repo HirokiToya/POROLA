@@ -1,6 +1,6 @@
 -cpu=rx600
 -lang=c99
--output=obj="C:\WorkSpace\POROLA\POROLA\porola\Debug\rxpi.obj"
+-output=obj="C:\WorkSpace\porola\porola\Debug\rxpi.obj"
 -debug
-"C:\WorkSpace\POROLA\POROLA\porola\rxpi.c"
+"C:\WorkSpace\porola\porola\rxpi.c"
 -nologo

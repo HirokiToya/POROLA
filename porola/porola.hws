@@ -3,12 +3,12 @@
 [DATABASE_VERSION]
 "11.0" 
 [WORKSPACE_DETAILS]
-"porola" "C:\WorkSpace\POROLA\POROLA" "C:\WorkSpace\POROLA\POROLA\porola.hws" "RX" "Renesas RX Standard" 
+"porola" "C:\WorkSpace\porola" "C:\WorkSpace\porola\porola.hws" "RX" "Renesas RX Standard" 
 [SHARED_WORKSPACE_CONTROL_STATUS]
 "" "" "" 
 "" "" "" 
 [PROJECTS]
-"porola" "C:\WorkSpace\POROLA\POROLA\porola" "C:\WorkSpace\POROLA\POROLA\porola\porola.hwp" 0 
+"porola" "C:\WorkSpace\porola\porola" "C:\WorkSpace\porola\porola\porola.hwp" 0 
 [INFORMATION]
 "ワークスペース情報がありません" 
 [SCRAP]

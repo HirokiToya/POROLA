@@ -1,6 +1,6 @@
 -cpu=rx600
 -lang=c99
--output=obj="C:\WorkSpace\POROLA\POROLA\porola\Debug\resetprg.obj"
+-output=obj="C:\WorkSpace\porola\porola\Debug\resetprg.obj"
 -debug
-"C:\WorkSpace\POROLA\POROLA\porola\resetprg.c"
+"C:\WorkSpace\porola\porola\resetprg.c"
 -nologo

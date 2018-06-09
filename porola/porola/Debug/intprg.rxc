@@ -1,6 +1,6 @@
 -cpu=rx600
 -lang=c99
--output=obj="C:\WorkSpace\POROLA\POROLA\porola\Debug\intprg.obj"
+-output=obj="C:\WorkSpace\porola\porola\Debug\intprg.obj"
 -debug
-"C:\WorkSpace\POROLA\POROLA\porola\intprg.c"
+"C:\WorkSpace\porola\porola\intprg.c"
 -nologo

@@ -6,6 +6,9 @@
 #include "motor.h"
 #include "servo.h"
 
+
+#define MaxCount 9
+
 void set_start_pos();
 void start_search();
 void search();

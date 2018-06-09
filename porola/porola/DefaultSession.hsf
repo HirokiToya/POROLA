@@ -52,8 +52,8 @@
 [WINDOW_POSITION_STATE_DATA_VD3]
 [WINDOW_POSITION_STATE_DATA_VD4]
 [WINDOW_Z_ORDER]
-"C:\WorkSpace\POROLA\POROLA\porola\linetrace.c" 
-"C:\WorkSpace\POROLA\POROLA\porola\distance_measure.c" 
+"C:\WorkSpace\porola\porola\distance_measure.c" 
+"C:\WorkSpace\porola\porola\intprg.c" 
 [TARGET_NAME]
 "" "" 1162378324 
 [STATUSBAR_STATEINFO_VD1]

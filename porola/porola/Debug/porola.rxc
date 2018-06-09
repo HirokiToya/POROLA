@@ -1,6 +1,6 @@
 -cpu=rx600
 -lang=c99
--output=obj="C:\WorkSpace\POROLA\POROLA\porola\Debug\porola.obj"
+-output=obj="C:\WorkSpace\porola\porola\Debug\porola.obj"
 -debug
-"C:\WorkSpace\POROLA\POROLA\porola\porola.c"
+"C:\WorkSpace\porola\porola\porola.c"
 -nologo

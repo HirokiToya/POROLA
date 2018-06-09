@@ -50,6 +50,8 @@ void main(void)
 	//start searching
 	//pattern = searching;
 
+	//pattern = return_tracing;
+
 	while(1)
 	{
 		switch(pattern){
@@ -97,6 +99,11 @@ void main(void)
 				red_act();
 				// todo:count rap and decide end or restart
 				pattern = waiting;
+			break;
+
+			case restart:
+				line_num = 0;
+				pattern = tracing;
 			break;
 		}
 	}

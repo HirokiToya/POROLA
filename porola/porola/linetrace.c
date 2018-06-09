@@ -23,6 +23,8 @@ void linetrace(void)
   //BBBB
   if(Ph0==Black && Ph1==Black && Ph2==Black && Ph3==Black)
     {
+      motor(W1,50);
+      motor(W2,50);
       if(line_flag == 0){
         increse_line_count();
 				rprintf("line_num:%d\r\n",line_num);
@@ -111,22 +113,3 @@ int line_state_scan()
   return 0;
 }
 
-void forthline_and_arduino_scan()
-{
-  if(InArduino == 1){
-    get_count = MaxBallCount;
-  }
-
-  if(Ph0==Black && Ph1==Black && Ph2==Black && Ph3==Black){
-    for(int i=0; i<30; i++);
-
-    if(Ph0==Black && Ph1==Black && Ph2==Black && Ph3==Black){
-      forth_line_flag = 1;
-      rprintf("\r\nforth_line_flag:%d\r\n",forth_line_flag);
-    }else{
-      forth_line_flag = 0;
-    }
-  }else{
-    forth_line_flag = 0;
-  }
-}

@@ -1,6 +1,6 @@
 -cpu=rx600
 -lang=c99
--output=obj="C:\WorkSpace\POROLA\POROLA\porola\Debug\debug_traj_mode.obj"
+-output=obj="C:\WorkSpace\porola\porola\Debug\debug_traj_mode.obj"
 -debug
-"C:\WorkSpace\POROLA\POROLA\porola\debug_traj_mode.c"
+"C:\WorkSpace\porola\porola\debug_traj_mode.c"
 -nologo

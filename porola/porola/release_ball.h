@@ -10,6 +10,8 @@ void blue_act();
 void yellow_act();
 void red_act();
 void init_PORT_for_Arduino();
+void reset_port_for_Arduino();
+void color_for_Arduino();
 void blue_for_Arduino();
 void yellow_for_Arduino();
 void red_for_Arduino();

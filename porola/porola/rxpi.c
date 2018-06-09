@@ -7,10 +7,9 @@ int line_num = 0;  // for count black line number
 int line_flag = 0; // for control linetrace
 int forth_line_flag = 0; // for conditional branch of 4th black line
 int interrupt_count = 0;
-int search_flag = 0; // for serching act
-int get_count = 0;
+int search_mode_flag = 0; // for serching act
 int search_count = 0;
-
+int return_flag = 0;
 
 /*----- init CMT timer -----*/
 void init_CMT(void)

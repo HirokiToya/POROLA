@@ -66,9 +66,12 @@ void Excep_ICU_SWINT(void){ }
 // CMTU0_CMT0 for linetrace
 void Excep_CMTU0_CMT0(void)
 {
-
   rx_time_milli_sec += SampTime; //++20[ms]
   update_enc_count();
+  if(InArduino == 1)
+  {
+    return_flag = 1;
+  }
 
   switch(rx_state){
 
@@ -86,71 +89,42 @@ void Excep_CMTU0_CMT0(void)
 
     case RETURN_TRACING_:
 
-      if(forth_line_flag == 1){
-        switch(line_num){
-          case 3:
-          motor(W1,1);
-          motor(W2,1);
-          pattern = red;
-          rx_state = STOP_REQ_;
-          break;
+      switch(line_num){
+        case 2:
+        motor(W1,1);
+        motor(W2,1);
+        line_num++;
+        pattern = blue;
+        rx_state = STOP_REQ_;
+        break;
 
-          case 4:
-          motor(W1,1);
-          motor(W2,1);
-          pattern = yellow;
-          rx_state = STOP_REQ_;
-          break;
+        case 4:
+        motor(W1,1);
+        motor(W2,1);
+        line_num++;
+        pattern = yellow;
+        rx_state = STOP_REQ_;
+        break;
 
-          case 5:
-          motor(W1,1);
-          motor(W2,1);
-          pattern = blue;
-          rx_state = STOP_REQ_;
-          break;
+        case 6:
+        motor(W1,1);
+        motor(W2,1);
+        line_num++;
+        pattern = red;
+        rx_state = STOP_REQ_;
+        break;
 
-          default:
-          linetrace();
-          break;
-        }
-      }else{
-        switch(line_num){
-          case 2:
-          motor(W1,1);
-          motor(W2,1);
-          pattern = red;
-          rx_state = STOP_REQ_;
-          break;
-
-          case 3:
-          motor(W1,1);
-          motor(W2,1);
-          pattern = yellow;
-          rx_state = STOP_REQ_;
-          break;
-
-          case 4:
-          motor(W1,1);
-          motor(W2,1);
-          pattern = blue;
-          rx_state = STOP_REQ_;
-          break;
-
-          default:
-          linetrace();
-          break;
-        }
-
+        default:
+        linetrace();
+        break;
       }
     break;
-
+      
     case TRAJ_:
-      if(search_flag == 1)
+      if(search_mode_flag == 1)
       {
         pd_control();
-        forthline_and_arduino_scan();
         stop_turning();
-        
       }else{
         pd_control();
       }
@@ -158,11 +132,10 @@ void Excep_CMTU0_CMT0(void)
     break;
 
     case RECURSION_:
-      forthline_and_arduino_scan();
+
       linetrace();
-      
       interrupt_count++;
-      if(interrupt_count == 20)
+      if(interrupt_count == 18)
       {
         motor(W1,1);
         motor(W2,1);

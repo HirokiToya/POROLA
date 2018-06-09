@@ -1,6 +1,6 @@
 -cpu=rx600
 -lang=c99
--output=obj="C:\WorkSpace\POROLA\POROLA\porola\Debug\sbrk.obj"
+-output=obj="C:\WorkSpace\porola\porola\Debug\sbrk.obj"
 -debug
-"C:\WorkSpace\POROLA\POROLA\porola\sbrk.c"
+"C:\WorkSpace\porola\porola\sbrk.c"
 -nologo

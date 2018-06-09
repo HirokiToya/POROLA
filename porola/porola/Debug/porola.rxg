@@ -1,4 +1,4 @@
 -cpu=rx600
--output="C:\WorkSpace\POROLA\POROLA\porola\Debug\porola.lib"
+-output="C:\WorkSpace\porola\porola\Debug\porola.lib"
 -lang=c99
 -head=runtime,stdio,stdlib,string,new

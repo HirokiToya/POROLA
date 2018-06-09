@@ -1,6 +1,6 @@
 -cpu=rx600
 -lang=c99
--output=obj="C:\WorkSpace\POROLA\POROLA\porola\Debug\tracking.obj"
+-output=obj="C:\WorkSpace\porola\porola\Debug\tracking.obj"
 -debug
-"C:\WorkSpace\POROLA\POROLA\porola\tracking.c"
+"C:\WorkSpace\porola\porola\tracking.c"
 -nologo

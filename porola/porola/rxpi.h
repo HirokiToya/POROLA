@@ -3,10 +3,9 @@
 
 #include <stdint.h>
 #include<machine.h>
-#include "iodefine.h"
 #include <stdio.h>
+#include "iodefine.h"
 #include "vect.h"
-#include <math.h>
 
 #define uartNum 2
 
@@ -28,8 +27,6 @@
 #define PD3 PORTD.DR.BIT.B3
 #define InArduino PORT4.PORT.BIT.B4
 
-#define MaxBallCount 9
-
 typedef enum{
   none,
 	waiting,
@@ -39,7 +36,8 @@ typedef enum{
 	return_tracing,
 	blue,
 	yellow,
-	red
+	red,
+	restart
 
 }robotState;
 
@@ -48,13 +46,10 @@ extern int rx_state;
 extern robotState pattern;
 extern int line_num;
 extern int line_flag;
-extern int forth_line_flag;
 extern int interrupt_count;
-extern int search_flag;
-extern int get_count;
+extern int search_mode_flag;
 extern int search_count;
-extern int count_feed;
-extern int count_sec;
+extern int return_flag;
 
 //prototype declaration
 
