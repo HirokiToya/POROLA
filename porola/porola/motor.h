@@ -41,8 +41,8 @@
 #define MOTOR_GEAR 19.2
 #define ENCODER_COUNT_PER_ROT 500.0
 
-#define PROPORTIAL_GAIN  0.01f  //0.034f
-#define DIFFERENTIAL_GAIN 0.002f//0.015f
+#define PROPORTIAL_GAIN  0.03
+#define DIFFERENTIAL_GAIN 0.02*0.02*2.0
 #define BODY_WIDTH   0.262f //[m]
 #define WHEEL_RADIUS 0.030f //[m]
 
