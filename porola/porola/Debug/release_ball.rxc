@@ -1,0 +1,6 @@
+-cpu=rx600
+-lang=c99
+-output=obj="C:\WorkSpace\POROLA\POROLA\porola\Debug\release_ball.obj"
+-debug
+"C:\WorkSpace\POROLA\POROLA\porola\release_ball.c"
+-nologo

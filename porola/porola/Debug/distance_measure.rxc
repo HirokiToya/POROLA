@@ -1,0 +1,6 @@
+-cpu=rx600
+-lang=c99
+-output=obj="C:\WorkSpace\POROLA\POROLA\porola\Debug\distance_measure.obj"
+-debug
+"C:\WorkSpace\POROLA\POROLA\porola\distance_measure.c"
+-nologo

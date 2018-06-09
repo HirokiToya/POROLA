@@ -1,0 +1,6 @@
+-cpu=rx600
+-lang=c99
+-output=obj="C:\WorkSpace\POROLA\POROLA\porola\Debug\tracking.obj"
+-debug
+"C:\WorkSpace\POROLA\POROLA\porola\tracking.c"
+-nologo

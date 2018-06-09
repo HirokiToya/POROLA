@@ -1,0 +1,6 @@
+-cpu=rx600
+-lang=c99
+-output=obj="C:\WorkSpace\POROLA\POROLA\porola\Debug\motor.obj"
+-debug
+"C:\WorkSpace\POROLA\POROLA\porola\motor.c"
+-nologo
