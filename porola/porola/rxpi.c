@@ -5,10 +5,10 @@ int rx_time_milli_sec = 0;
 robotState	pattern = waiting;
 int line_num = 0;  // for count black line number 
 int line_flag = 0; // for control linetrace
-int forth_line_flag = 0; // for conditional branch of 4th black line
 int interrupt_count = 0;
 int search_mode_flag = 0; // for serching act
 int search_count = 0;
+int escape_loop_get_ball = 0;
 int return_flag = 0;
 
 /*----- init CMT timer -----*/

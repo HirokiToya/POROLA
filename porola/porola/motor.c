@@ -1,7 +1,6 @@
 #include "motor.h"
 
 static void init_pwm();
-static void init_port_motor();
 static void init_enc();
 
 void motor( int no, int duty )
@@ -42,7 +41,6 @@ void motor( int no, int duty )
 
 void init_motor() {
 	init_pwm();
-	init_port_motor();
 	init_enc();
 }
 
@@ -92,54 +90,7 @@ void init_pwm(){
   PORT5.DDR.BIT.B0=1;
   PORT5.DDR.BIT.B1=1;
   PORT5.DDR.BIT.B5=1;
-  PORT5.DDR.BIT.B4=1;// you can't use P53
-}
-
-static
-void init_port_motor() {
-  //set motor port
-  PORT5.DDR.BIT.B0=1;
-  PORT5.DDR.BIT.B1=1;
-  PORT5.DDR.BIT.B5=1;
   PORT5.DDR.BIT.B4=1;
-
-  //set enc port
-  PORT2.DDR.BIT.B2=0;//P22 input
-  PORT2.DDR.BIT.B3=0;//P23 input
-  PORT2.DDR.BIT.B4=0;//P24 input
-  PORT2.DDR.BIT.B5=0;//P25 input
-
-  PORTC.DDR.BIT.B0=0;
-  PORTC.DDR.BIT.B1=0;
-  PORTC.DDR.BIT.B2=0;
-  PORTC.DDR.BIT.B3=0;
-
-  //linetraceLED
-  PORTD.DDR.BIT.B0 = 1;
-  PORTD.DDR.BIT.B1 = 1;
-  PORTD.DDR.BIT.B2 = 1;
-  PORTD.DDR.BIT.B3 = 1;
-
-  //photo rifrector port
-  PORT4.DDR.BIT.B0 = 0; 
-  PORT4.DDR.BIT.B1 = 0; 
-  PORT4.DDR.BIT.B2 = 0; 
-  PORT4.DDR.BIT.B3 = 0; 
-
-  //set input buffer control register
-  PORT2.ICR.BIT.B0=1;
-  PORT2.ICR.BIT.B1=1;
-  PORT2.ICR.BIT.B2=1;
-  PORT2.ICR.BIT.B3=1;
-  PORT2.ICR.BIT.B4=1;
-  PORT2.ICR.BIT.B5=1;
-
-  PORTC.ICR.BIT.B0=1;
-  PORTC.ICR.BIT.B1=1;
-  PORTC.ICR.BIT.B2=1;
-  PORTC.ICR.BIT.B3=1;
-
-  PORT1.DDR.BIT.B3=1;// motor2 pwm
 }
 
 static
@@ -192,4 +143,23 @@ void init_enc(){
   MTUA.TSTR.BIT.CST2=1;
   MTUB.TSTR.BIT.CST1=1;
   MTUB.TSTR.BIT.CST2=1;
+
+  //set enc port
+  PORT2.DDR.BIT.B2=0;//P22 input
+  PORT2.DDR.BIT.B3=0;//P23 input
+  PORT2.DDR.BIT.B4=0;//P24 input
+  PORT2.DDR.BIT.B5=0;//P25 input
+  PORT2.ICR.BIT.B2=1;
+  PORT2.ICR.BIT.B3=1;
+  PORT2.ICR.BIT.B4=1;
+  PORT2.ICR.BIT.B5=1;
+
+  PORTC.DDR.BIT.B0=0;
+  PORTC.DDR.BIT.B1=0;
+  PORTC.DDR.BIT.B2=0;
+  PORTC.DDR.BIT.B3=0;
+  PORTC.ICR.BIT.B0=1;
+  PORTC.ICR.BIT.B1=1;
+  PORTC.ICR.BIT.B2=1;
+  PORTC.ICR.BIT.B3=1;
 }

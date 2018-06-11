@@ -22,8 +22,8 @@ void start_search()
     line_num = 0;
     pattern = return_tracing;
   }else{
+    search_mode_flag = 0;
     pattern = none;
-    search_mode_flag = 1;
     rx_state = TRAJ_;
     while(rx_state == TRAJ_);
     search();
@@ -33,17 +33,28 @@ void start_search()
 void search()
 {
   rprintf("search()\r\n");
+
+  search_mode_flag = 0;
+  escape_loop_get_ball = 0;
   traj_tracking(0.0, 45.0, 3.0);
+
+  search_mode_flag = 1;
+  escape_loop_get_ball = 0;
   traj_tracking(0.0, -45.0, 3.0);
+
+  escape_loop_get_ball = 0;
   traj_tracking(0.0, -45.0, 3.0);
+
+  search_mode_flag = 0;
+  escape_loop_get_ball = 0;
   traj_tracking(0.0, 45.0, 3.0);
+  
   if(search_count < 2)
   {
     traj_tracking(0.060, 0.0, 2.0);
   }else{
     set_recursion();
   }
-
   pattern = searching; 
 }
 
@@ -66,13 +77,17 @@ void stop_turning(){
   int last_dist = get_distance();
   int current_dist = get_distance();
   int dist = (last_dist+current_dist) / 2;
-  if( dist < 25 ){
+  if( dist < 23 ){
     int d_check = last_dist - current_dist;
     if(d_check < 5){
       motor(W1,1);
       motor(W2,1);
       rprintf("get_ball()\r\n");
-      get_ball();
+      if(escape_loop_get_ball < 3)
+      {
+        get_ball();
+        escape_loop_get_ball++;
+      } 
     }
   }
 }

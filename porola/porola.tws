@@ -9,9 +9,11 @@
 [OPEN_WORKSPACE_FILES]
 "C:\WorkSpace\porola\porola\distance_measure.c" 
 "C:\WorkSpace\porola\porola\intprg.c" 
+"C:\WorkSpace\porola\porola\motor.c" 
 [WORKSPACE_FILE_STATES]
-"C:\WorkSpace\porola\porola\distance_measure.c" -8 -30 1126 354 1 0 
+"C:\WorkSpace\porola\porola\distance_measure.c" 0 0 1126 354 0 0 
 "C:\WorkSpace\porola\porola\intprg.c" 25 25 1059 235 0 1 
+"C:\WorkSpace\porola\porola\motor.c" -8 -30 1126 284 1 2 
 [LOADED_PROJECTS]
 "porola" 
 [END]

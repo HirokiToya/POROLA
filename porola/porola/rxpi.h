@@ -49,6 +49,7 @@ extern int line_flag;
 extern int interrupt_count;
 extern int search_mode_flag;
 extern int search_count;
+extern int escape_loop_get_ball;
 extern int return_flag;
 
 //prototype declaration

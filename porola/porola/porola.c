@@ -27,6 +27,7 @@ void main(void)
 	pattern = none;
 	rx_state = STOP_;
 	init_motor();
+	initilize_linetrace();
 	init_servo();
 	init_ADC();
 	init_UART();
@@ -43,13 +44,9 @@ void main(void)
 	traj_tracking(0.0, -60.0, 3.0);
 	traj_tracking(0.0, 60.0, 3.0);
 	traj_tracking(0.30, 0.0, 2.0);
-
-	//start linetrace
+	
 	pattern = tracing;
-
-	//start searching
 	//pattern = searching;
-
 	//pattern = return_tracing;
 
 	while(1)

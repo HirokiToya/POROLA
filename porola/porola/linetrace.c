@@ -1,5 +1,20 @@
 #include "motor.h"
 
+void initilize_linetrace()
+{
+  //linetraceLED
+  // PORTD.DDR.BIT.B0 = 1;
+  // PORTD.DDR.BIT.B1 = 1;
+  // PORTD.DDR.BIT.B2 = 1;
+  // PORTD.DDR.BIT.B3 = 1;
+
+  //photo rifrector port
+  PORT4.DDR.BIT.B0 = 0; 
+  PORT4.DDR.BIT.B1 = 0; 
+  PORT4.DDR.BIT.B2 = 0; 
+  PORT4.DDR.BIT.B3 = 0;
+}
+
 void start_linetrace(void)
 {
 	rprintf("StartLinetrace\r\n");

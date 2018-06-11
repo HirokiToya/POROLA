@@ -89,6 +89,7 @@ extern ENCODER encoder4;
 // prototype declaration
 void motor( int no, int duty );
 void init_motor();
+void initilize_linetrace();
 void start_linetrace(void);
 void start_return_linetrace(void);
 void linetrace(void);
