@@ -10,6 +10,7 @@ int search_mode_flag = 0; // for serching act
 int search_count = 0;
 int escape_loop_get_ball = 0;
 int return_flag = 0;
+int rap_flag = 0;
 
 /*----- init CMT timer -----*/
 void init_CMT(void)

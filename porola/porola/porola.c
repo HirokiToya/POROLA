@@ -19,11 +19,15 @@
 #include "distance_measure.h"
 #include "run_mode.h"
 #include "release_ball.h"
+#include "communicate_arduino.h"
 #ifdef MAIN_POROLA_MODE
+
+void get_free_ball();
+void finish_mode();
 
 void main(void)
 {
-	//init
+	//initialize robot
 	pattern = none;
 	rx_state = STOP_;
 	init_motor();
@@ -34,20 +38,11 @@ void main(void)
 	init_CMT();
 	init_PORT_for_Arduino();
 	init_horn();
-
 	start_CMT0();
 	start_ADC0(); //for linetrace
 	start_ADC1(); //for distance sencer
 
-	//first tracking
-	traj_tracking(0.50, 0.0, 3.0);
-	traj_tracking(0.0, -60.0, 3.0);
-	traj_tracking(0.0, 60.0, 3.0);
-	traj_tracking(0.30, 0.0, 2.0);
-	
-	pattern = tracing;
-	//pattern = searching;
-	//pattern = return_tracing;
+	get_free_ball();
 
 	while(1)
 	{
@@ -66,14 +61,24 @@ void main(void)
 				start_linetrace();
 			break;
 
-			case set_start_line_pos:
-				rprintf("set_start_line_pos\r\n");
-				set_start_pos();
+			case set_start_pos:
+				rprintf("set_start_pos\r\n");
+				set_start_position();
+			break;
+
+			case set_second_pos:
+				rprintf("set_second_pos\r\n");
+				set_second_position();
 			break;
 
 			case searching:
 				rprintf("searching\r\n");
 				start_search();
+			break;
+
+			case second_lap_searching:
+				rprintf("second_lap_searching\r\n");
+				start_second_lap_search();
 			break;
 
 			case return_tracing:
@@ -94,16 +99,45 @@ void main(void)
 			case red:
 				rprintf("red\r\n");
 				red_act();
-				// todo:count rap and decide end or restart
-				pattern = waiting;
+				if(rap_flag == 1){
+					pattern = restart;
+				}else{
+					pattern = finish;
+				}
+				
 			break;
 
 			case restart:
 				line_num = 0;
+				reset_port_for_Arduino();
 				pattern = tracing;
+			break;
+
+			case finish:
+				finish_mode();
 			break;
 		}
 	}
+}
+
+void get_free_ball()
+{
+	//first tracking
+	traj_tracking(0.50, 0.0, 3.0);
+	traj_tracking(0.0, -60.0, 3.0);
+	traj_tracking(0.0, 60.0, 3.0);
+	traj_tracking(0.30, 0.0, 2.0);
+
+	pattern = tracing;
+	//pattern = searching;
+	//pattern = return_tracing;
+}
+
+void finish_mode()
+{
+	traj_tracking(-0.70, 0.0, 5.0);
+	pattern = none;
+	rx_state = STOP_REQ_;
 }
 
 #ifdef __cplusplus

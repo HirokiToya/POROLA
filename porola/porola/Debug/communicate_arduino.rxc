@@ -1,0 +1,6 @@
+-cpu=rx600
+-lang=c99
+-output=obj="C:\WorkSpace\porola\porola\Debug\communicate_arduino.obj"
+-debug
+"C:\WorkSpace\porola\porola\communicate_arduino.c"
+-nologo

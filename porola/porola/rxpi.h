@@ -19,7 +19,8 @@
 #define LINE_      		4
 #define SEARCH_    		5
 #define RECURSION_ 		6
-#define RETURN_TRACING_ 7
+#define RETURN_LINETRACE_ 7
+#define LIMITED_LINETRACE_ 8
 
 #define PD0 PORTD.DR.BIT.B0
 #define PD1 PORTD.DR.BIT.B1
@@ -31,13 +32,16 @@ typedef enum{
   none,
 	waiting,
 	tracing,
-	set_start_line_pos,
+	set_start_pos,
+	set_second_pos,
 	searching,
+	second_lap_searching,
 	return_tracing,
 	blue,
 	yellow,
 	red,
-	restart
+	restart,
+	finish
 
 }robotState;
 
@@ -51,6 +55,7 @@ extern int search_mode_flag;
 extern int search_count;
 extern int escape_loop_get_ball;
 extern int return_flag;
+extern int rap_flag;
 
 //prototype declaration
 

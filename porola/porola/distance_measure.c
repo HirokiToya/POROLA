@@ -1,15 +1,35 @@
 #include "distance_measure.h"
 
-void set_start_pos(){
-  traj_tracking(0.0, 15.0, 2.0);
-  traj_tracking(0.88, 0.0, 4.0);
-  traj_tracking(0.0, 92.0, 4.0);
-  traj_tracking(-0.10, 0.0, 2.0);
-  pattern = searching;
+void set_start_position()
+{
+  switch(rap_flag){
+    case 1:
+        traj_tracking(0.0, 15.0, 2.0);
+        traj_tracking(0.88, 0.0, 4.0);
+        traj_tracking(0.0, 92.0, 4.0);
+        traj_tracking(-0.10, 0.0, 2.0);
+        pattern = searching;
+    break;
+
+    case 2:
+        traj_tracking(0.0, 15.0, 2.0);
+        traj_tracking(0.88, 0.0, 4.0);
+        traj_tracking(0.0, 92.0, 4.0);
+        traj_tracking(0.20, 0.0, 3.0);
+        pattern = set_second_pos;
+    break;
+  }
+
+}
+
+void set_second_position()
+{
+  set_start_limited_line_trace();
 }
 
 void start_search()
 {
+  search_mode_for_Arduino();
   search_count++;
   if(search_count > 7 && return_flag == 1 ){
     search_count = 0;
@@ -17,7 +37,29 @@ void start_search()
     return_flag = 0;
     //robot turn to go back
     traj_tracking(0.25, 0.0, 3.0);
-    traj_tracking(0.0, -185.0, 5.0);
+    traj_tracking(0.0, -187.0, 5.0);
+    set_recursion();
+    line_num = 0;
+    pattern = return_tracing;
+  }else{
+    search_mode_flag = 0;
+    pattern = none;
+    rx_state = TRAJ_;
+    while(rx_state == TRAJ_);
+    search();
+  }
+}
+
+void start_second_lap_search()
+{
+  search_mode_for_Arduino();
+  search_count++;
+  if(search_count > 7 ){
+    search_count = 0;
+    search_mode_flag = 0;
+    return_flag = 0;
+    //robot turn to go back
+    traj_tracking(0.0, -187.0, 5.0);
     set_recursion();
     line_num = 0;
     pattern = return_tracing;
@@ -55,7 +97,17 @@ void search()
   }else{
     set_recursion();
   }
-  pattern = searching; 
+
+  switch(rap_flag){
+    case 1:
+      pattern = searching;
+    break;
+
+    case 2:
+      pattern = second_lap_searching;
+    break;
+  }
+
 }
 
 
@@ -90,29 +142,4 @@ void stop_turning(){
       } 
     }
   }
-}
-
-void set_recursion(void)
-{
-  rprintf("recursion()\r\n");
-
-  while(1){
-    if(Ph0=White && Ph1==White && Ph2==White && Ph3==White)
-    {
-      motor(W1,-35);
-      motor(W2,-35);
-    }else{
-      break;
-    }
-  }
-  start_recursion();
-}
-
-void start_recursion(void)
-{
-  rprintf("start_recursion()\r\n");
-  interrupt_count = 0;
-  pattern = none;
-	rx_state = RECURSION_;
-	while(rx_state == RECURSION_);
 }

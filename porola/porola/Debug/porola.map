@@ -1,4 +1,4 @@
-Optimizing Linkage Editor (V.10.01.00.000)        12-Jun-2018 02:58:16
+Optimizing Linkage Editor (V.10.01.00.000)        13-Jun-2018 00:40:56
 
 *** Options ***
 
@@ -10,6 +10,7 @@ Optimizing Linkage Editor (V.10.01.00.000)        12-Jun-2018 02:58:16
 -nooptimize
 -start=B_1,R_1,B_2,R_2,B,R,SU,SI/01000,PResetPRG/0FFFF8000,C_1,C_2,C,C$*,D_1,D_2,D,P,PIntPRG,W*,L/0FFFF8100,FIXEDVECT/0FFFFFFD0
 -nologo
+-input="C:\WorkSpace\porola\porola\Debug\communicate_arduino.obj"
 -input="C:\WorkSpace\porola\porola\Debug\dbsct.obj"
 -input="C:\WorkSpace\porola\porola\Debug\debug_communication_with_arduino_mode.obj"
 -input="C:\WorkSpace\porola\porola\Debug\debug_motor_mode.obj"
@@ -47,11 +48,11 @@ R_2
 B
                                   00001054  000033d7      2384   4
 R
-                                  000033d8  00003653       27c   4
+                                  000033d8  00003657       280   4
 SU
-                                  00003654  00003753       100   4
+                                  00003658  00003757       100   4
 SI
-                                  00003754  00003a53       300   4
+                                  00003758  00003a57       300   4
 PResetPRG
                                   ffff8000  ffff8030        31   1
 C_1
@@ -71,18 +72,18 @@ D_1
 D_2
                                   ffff88be  ffff88be         0   2
 D
-                                  ffff88c0  ffff8b3b       27c   4
+                                  ffff88c0  ffff8b3f       280   4
 P
-                                  ffff8b3c  ffffbb17      2fdc   1
+                                  ffff8b40  ffffbd0f      31d0   1
 PIntPRG
-                                  ffffbb18  ffffbdd7       2c0   1
+                                  ffffbd10  ffffc00a       2fb   1
 W_1
-                                  ffffbdd8  ffffbdd8         0   1
+                                  ffffc00b  ffffc00b         0   1
 W_2
-                                  ffffbdd8  ffffbdeb        14   2
+                                  ffffc00c  ffffc025        1a   2
 W
-                                  ffffbdec  ffffbdec         0   4
+                                  ffffc028  ffffc028         0   4
 L
-                                  ffffbdec  ffffbfdc       1f1   4
+                                  ffffc028  ffffc25c       235   4
 FIXEDVECT
                                   ffffffd0  ffffffff        30   4

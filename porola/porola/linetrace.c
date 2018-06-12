@@ -1,3 +1,4 @@
+
 #include "motor.h"
 
 void initilize_linetrace()
@@ -20,6 +21,8 @@ void start_linetrace(void)
 	rprintf("StartLinetrace\r\n");
   rprintf("line_flag:%d\r\n",line_flag);
 	rprintf("line_num:%d\r\n",line_num);
+  reset_port_for_Arduino();
+  rap_flag++;
   line_num = 0;
   pattern = none;
 	rx_state = LINE_;
@@ -28,9 +31,10 @@ void start_linetrace(void)
 
 void start_return_linetrace()
 {
+  reset_port_for_Arduino();
   pattern = none;
-	rx_state = RETURN_TRACING_;
-	while(rx_state == RETURN_TRACING_);
+	rx_state = RETURN_LINETRACE_;
+	while(rx_state == RETURN_LINETRACE_);
 }
 
 void linetrace(void)
@@ -127,4 +131,53 @@ int line_state_scan()
   }
   return 0;
 }
+
+void set_recursion(void)
+{
+  rprintf("recursion()\r\n");
+
+  while(1){
+    if(Ph0=White && Ph1==White && Ph2==White && Ph3==White)
+    {
+      motor(W1,-35);
+      motor(W2,-35);
+    }else{
+      break;
+    }
+  }
+  start_recursion();
+}
+
+void start_recursion(void)
+{
+  rprintf("start_recursion()\r\n");
+  interrupt_count = 0;
+  pattern = none;
+	rx_state = RECURSION_;
+	while(rx_state == RECURSION_);
+}
+
+void set_start_limited_line_trace()
+{
+  while(1){
+    if(Ph0=White && Ph1==White && Ph2==White && Ph3==White)
+    {
+      motor(W1,-35);
+      motor(W2,-35);
+    }else{
+      break;
+    }
+  }
+  start_limited_line_trace();
+}
+
+void start_limited_line_trace()
+{
+  rprintf("start_limited_line_trace()\r\n");
+  interrupt_count = 0;
+  pattern = none;
+	rx_state = LIMITED_LINETRACE_;
+	while(rx_state == LIMITED_LINETRACE_);
+}
+
 

@@ -7,6 +7,7 @@
 #include "typedefine.h"
 #include "iodefine.h"
 #include "rxpi.h"
+#include "communicate_arduino.h"
 
 /*
 	Motor 1 W1
@@ -95,7 +96,10 @@ void start_return_linetrace(void);
 void linetrace(void);
 void increse_line_count();
 int  line_state_scan();
-void forthline_and_arduino_scan();
+void set_recursion();
+void start_recursion();
+void start_limited_line_trace();
+void set_start_limited_line_trace();
 
 void traj_tracking(float distance, float degree,float time);
 void make_traj(int no, float rad, float time );

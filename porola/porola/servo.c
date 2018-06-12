@@ -114,11 +114,11 @@ void init_horn(){
 void get_ball()
 {
   arm_down();
-  for(int i=0; i<500; i++){
+  for(int i=0; i<100; i++){
     rprintf("=========\r\n");
   }
   horn_close();
-  for(int i=0; i<500; i++){
+  for(int i=0; i<100; i++){
     rprintf("=========\r\n");
   }
   arm_up();
@@ -126,7 +126,7 @@ void get_ball()
     rprintf("=========\r\n");
   }
   horn_open();
-  for(int i=0; i<500; i++){
+  for(int i=0; i<100; i++){
     rprintf("=========\r\n");
   }
 

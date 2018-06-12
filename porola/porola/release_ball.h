@@ -1,19 +1,15 @@
-#ifndef RELEASE_BALL
-#define RELEASE_BALL
+#ifndef RELEASE_BALL_H
+#define RELEASE_BALL_H
 
 #include "iodefine.h"
 #include "rxpi.h"
 #include "motor.h"
 #include "servo.h"
+#include "communicate_arduino.h"
 
 void blue_act();
 void yellow_act();
 void red_act();
-void init_PORT_for_Arduino();
-void reset_port_for_Arduino();
-void color_for_Arduino();
-void blue_for_Arduino();
-void yellow_for_Arduino();
-void red_for_Arduino();
+
 
 #endif

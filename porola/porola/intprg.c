@@ -31,6 +31,7 @@
 #include "motor.h"
 #include "distance_measure.h"
 #include "rxpi.h"
+#include "communicate_arduino.h"
 #pragma section IntPRG
 
 // Exception(Supervisor Instruction)
@@ -76,19 +77,20 @@ void Excep_CMTU0_CMT0(void)
   switch(rx_state){
 
     case LINE_:
+      //reset_port_for_Arduino();
       if(line_num == 2)
       {
         motor(W1,1);
         motor(W2,1);
         rx_state = STOP_REQ_;
-        pattern = set_start_line_pos;
+        pattern = set_start_pos;
       }else{
         linetrace();
       }
     break;
 
-    case RETURN_TRACING_:
-
+    case RETURN_LINETRACE_:
+      //reset_port_for_Arduino();
       switch(line_num){
         case 2:
         motor(W1,1);
@@ -123,6 +125,7 @@ void Excep_CMTU0_CMT0(void)
     case TRAJ_:
       if(search_mode_flag == 1)
       {
+        //search_mode_for_Arduino();
         pd_control();
         stop_turning();
       }else{
@@ -140,6 +143,18 @@ void Excep_CMTU0_CMT0(void)
         motor(W1,1);
         motor(W2,1);
         rx_state = STOP_REQ_;
+      }
+    break;
+
+    case LIMITED_LINETRACE_:
+      linetrace();
+      interrupt_count++;
+      if(interrupt_count == 50)
+      {
+        motor(W1,1);
+        motor(W2,1);
+        rx_state = STOP_REQ_;
+        pattern = second_lap_searching;
       }
     break;
 
