@@ -31,18 +31,18 @@ void main(void)
 	// print_trajectory_header();
     // start_tracking(print_trajectory);
 	
-	make_traj_with_distance_degrees(0.0, 60.0, 3.0);
-	print_trajectory_header();
-    start_tracking(print_trajectory);
+	// make_traj_with_distance_degrees(0.0, 60.0, 3.0);
+	// print_trajectory_header();
+    // start_tracking(print_trajectory);
 
-	make_traj_with_distance_degrees(0.0, -60.0, 3.0);
-	print_trajectory_header();
-    start_tracking(print_trajectory);
+	// make_traj_with_distance_degrees(0.0, -60.0, 3.0);
+	// print_trajectory_header();
+    // start_tracking(print_trajectory);
 	
 	while(1)
 	{
-		// rprintf("enc1:%d, enc2:%d \r\n",
-        //      (int)encoder1.cnt, (int)encoder2.cnt);
+		rprintf("enc1:%d, enc2:%d \r\n",
+             (int)encoder1.cnt, (int)encoder2.cnt);
 	}
 
 }

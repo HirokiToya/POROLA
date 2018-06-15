@@ -4,13 +4,13 @@
 
 void init_servo()
 {
-//Servo1 CN1-27
+//Servo1(horn) CN1-27
   PORT3.DR.BIT.B2  = 0;
   PORT3.DDR.BIT.B2 = 1;
 //Servo2
   PORT3.DR.BIT.B4  = 0;
   PORT3.DDR.BIT.B4 = 1;
-//Servo3 CN2-13
+//Servo3(arm) CN2-13
   PORTB.DR.BIT.B4  = 0;
   PORTB.DDR.BIT.B4 = 1;
 //Servo4
@@ -87,7 +87,7 @@ void horn_open(){
 }
 
 void horn_close(){
-  MTU0.TGRD = 340;
+  MTU0.TGRD = 330;
 }
 
 void arm_up(){

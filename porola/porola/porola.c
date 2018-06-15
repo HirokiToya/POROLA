@@ -123,10 +123,10 @@ void main(void)
 void get_free_ball()
 {
 	//first tracking
-	traj_tracking(0.50, 0.0, 3.0);
-	traj_tracking(0.0, -60.0, 3.0);
-	traj_tracking(0.0, 60.0, 3.0);
-	traj_tracking(0.30, 0.0, 2.0);
+	traj_tracking(0.55, 0.0, 3.0);
+	traj_tracking(0.0, -60.0, 2.0);
+	traj_tracking(0.0, 60.0, 2.0);
+	traj_tracking(0.10, 0.0, 1.0);
 
 	pattern = tracing;
 	//pattern = searching;

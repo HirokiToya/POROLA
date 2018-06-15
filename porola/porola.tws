@@ -13,11 +13,11 @@
 "C:\WorkSpace\porola\porola\linetrace.c" 
 "C:\WorkSpace\porola\porola\porola.c" 
 [WORKSPACE_FILE_STATES]
-"C:\WorkSpace\porola\porola\distance_measure.c" -8 -30 1140 319 1 3 
+"C:\WorkSpace\porola\porola\distance_measure.c" 0 0 1140 319 0 3 
 "C:\WorkSpace\porola\porola\distance_measure.h" 50 50 1024 220 0 2 
-"C:\WorkSpace\porola\porola\intprg.c" 0 0 1020 216 0 0 
+"C:\WorkSpace\porola\porola\intprg.c" 0 0 1140 360 0 0 
 "C:\WorkSpace\porola\porola\linetrace.c" 0 0 1140 434 0 1 
-"C:\WorkSpace\porola\porola\porola.c" 0 0 1074 128 0 4 
+"C:\WorkSpace\porola\porola\porola.c" -8 -30 1140 360 1 4 
 [LOADED_PROJECTS]
 "porola" 
 [END]

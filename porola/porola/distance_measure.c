@@ -4,17 +4,17 @@ void set_start_position()
 {
   switch(rap_flag){
     case 1:
-        traj_tracking(0.0, 15.0, 2.0);
+        traj_tracking(0.0, 13.0, 1.0);
         traj_tracking(0.88, 0.0, 4.0);
-        traj_tracking(0.0, 92.0, 4.0);
+        traj_tracking(0.0, 96.0, 3.0);
         traj_tracking(-0.10, 0.0, 2.0);
         pattern = searching;
     break;
 
     case 2:
-        traj_tracking(0.0, 15.0, 2.0);
+        traj_tracking(0.0, 13.0, 1.0);
         traj_tracking(0.88, 0.0, 4.0);
-        traj_tracking(0.0, 92.0, 4.0);
+        traj_tracking(0.0, 96.0, 3.0);
         traj_tracking(0.20, 0.0, 3.0);
         pattern = set_second_pos;
     break;
@@ -36,8 +36,8 @@ void start_search()
     search_mode_flag = 0;
     return_flag = 0;
     //robot turn to go back
-    traj_tracking(0.25, 0.0, 3.0);
-    traj_tracking(0.0, -187.0, 5.0);
+    traj_tracking(0.20, 0.0, 3.0);
+    traj_tracking(0.0, -188.0, 5.0);
     set_recursion();
     line_num = 0;
     pattern = return_tracing;
@@ -54,12 +54,12 @@ void start_second_lap_search()
 {
   search_mode_for_Arduino();
   search_count++;
-  if(search_count > 7 ){
+  if(search_count > 4 ){ // 7
     search_count = 0;
     search_mode_flag = 0;
     return_flag = 0;
     //robot turn to go back
-    traj_tracking(0.0, -187.0, 5.0);
+    traj_tracking(0.0, -188.0, 5.0);
     set_recursion();
     line_num = 0;
     pattern = return_tracing;
@@ -78,22 +78,22 @@ void search()
 
   search_mode_flag = 0;
   escape_loop_get_ball = 0;
-  traj_tracking(0.0, 45.0, 3.0);
+  traj_tracking(0.0, 50.0, 3.0);
 
   search_mode_flag = 1;
   escape_loop_get_ball = 0;
-  traj_tracking(0.0, -45.0, 3.0);
+  traj_tracking(0.0, -50.0, 3.0);
 
   escape_loop_get_ball = 0;
-  traj_tracking(0.0, -45.0, 3.0);
+  traj_tracking(0.0, -50.0, 3.0);
 
   search_mode_flag = 0;
   escape_loop_get_ball = 0;
-  traj_tracking(0.0, 45.0, 3.0);
+  traj_tracking(0.0, 50.0, 3.0);
   
   if(search_count < 2)
   {
-    traj_tracking(0.060, 0.0, 2.0);
+    traj_tracking(0.10, 0.0, 2.0);
   }else{
     set_recursion();
   }
